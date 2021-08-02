@@ -9,10 +9,11 @@
 5. matcha-gtk-theme (AUR)
 6. noto-fonts
 7. noto-fonts-extra
-8. papirus-icon-theme
-9. powerline
-10. ttf-fira-code
-11. ttf-roboto
-12. visual-studio-code-bin (AUR)
-13. [yay](https://github.com/Jguer/yay) (AUR)
-14. zsh
+8. pamac (AUR)
+9. papirus-icon-theme
+10. powerline
+11. ttf-fira-code
+12. ttf-roboto
+13. visual-studio-code-bin (AUR)
+14. [yay](https://github.com/Jguer/yay) (AUR)
+15. zsh
