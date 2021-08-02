@@ -7,7 +7,7 @@ cd yay && makepkg -sic
 sudo pacman -S firefox flatpak gnome-software-packagekit-plugin noto-fonts noto-fonts-extra papirus-icon-theme powerline ttf-fira-code ttf-roboto zsh
 
 # Install packages from yay
-yay -S chrome-gnome-shell matcha-gtk-theme pamac visual-studio-code-bin
+yay -S chrome-gnome-shell gnome-shell-extension-dash-to-dock matcha-gtk-theme pamac visual-studio-code-bin
 
 # Change shell to zsh
 chsh -s $(which zsh) ocayci
