@@ -8,3 +8,7 @@ sudo pacman -S firefox flatpak gnome-software-packagekit-plugin noto-fonts noto-
 
 # Install packages from yay
 yay -S chrome-gnome-shell visual-studio-code-bin
+
+# Change shell to zsh
+chsh -s $(which zsh) ocayci
+echo "Logout and Login again to see the changes take effect."
