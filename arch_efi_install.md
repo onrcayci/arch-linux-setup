@@ -67,6 +67,7 @@ Create the file `etc/locale.conf` and add the line `LANG=en_CA.UTF-8`
 Configure the hostname by writing the hostname into `/etc/hostname`
 
 Configure the hosts by adding the followign to `/etc/hosts`:
+
 ```
 127.0.0.1   localhost
 ::1         localhost
@@ -87,7 +88,7 @@ Generate grub config file by `grub-mkconfig -o /boot/grub/grub.cfg`
 
 Enable the NetworkManager daemon by `systemctl enable NetworkManager`
 
-Install the Gnome desktop environment by `pacman -S gnome`
+Install the Gnome desktop environment by `pacman -S gnome xorg`
 
 Enable the Gnome Display Manager `gdm` by `systemctl enable gdm`
 
