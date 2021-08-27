@@ -10,7 +10,7 @@ cd && sudo rm -r yay
 sudo pacman -Rs epiphany gnome-software
 
 # Install packages from pacman
-sudo pacman -S firefox gnome-tweaks noto-fonts noto-fonts-extra papirus-icon-theme powerline ttf-fira-code ttf-roboto
+sudo pacman -S --needed firefox gnome-tweaks noto-fonts noto-fonts-extra papirus-icon-theme powerline ttf-fira-code ttf-roboto
 
 # Install packages from yay
 yay -S chrome-gnome-shell gnome-shell-extension-dash-to-dock visual-studio-code-bin
