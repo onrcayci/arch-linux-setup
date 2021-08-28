@@ -14,3 +14,4 @@ fi
 # aliases
 alias autoremove="sudo pacman -Rs $(pacman -Qtdq)"
 alias orphans="sudo pacman -Qtdq"
+alias ls="ls --color=auto"
