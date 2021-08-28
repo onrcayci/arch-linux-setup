@@ -11,6 +11,14 @@ if command -v powerline-daemon 1>/dev/null 2>&1; then
     . /usr/share/powerline/bindings/zsh/powerline.zsh
 fi
 
+# pyenv
+if comman -v pyenv 1>/dev/null 2>&1; then
+    export PYENV_ROOT="$HOME/.pyenv"
+    export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init --path)"
+    eval "$(pyenv init -)"
+fi
+
 # aliases
 alias autoremove="sudo pacman -Rs $(pacman -Qtdq)"
 alias orphans="sudo pacman -Qtdq"
