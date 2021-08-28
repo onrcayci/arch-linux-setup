@@ -1,5 +1,5 @@
 # install nvidia drivers
-sudo pacman -S nvidia nvidia-prime xf86-video-intel
+sudo pacman -S nvidia nvidia-prime nvidia-settings xf86-video-intel
 
 # setup nvidia
 sudo nvidia-xconfig
