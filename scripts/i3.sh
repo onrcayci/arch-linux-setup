@@ -1,5 +1,7 @@
 # install i3 package (i3-gaps)
-sudo pacman -S i3 dmenu ttf-font-awesome feh
+sudo pacman -S bluez blueman dmenu feh i3 network-manager-applet \
+openssh pavucontrol pulseaudio pulseaudio-alsa pulseaudio-bluetooth ttf-font-awesome
+
 
 # put configuration files
 sudo cp ~/arch-linux-setup/i3/90-touchpad.conf /etc/X11/xorg.conf.d
