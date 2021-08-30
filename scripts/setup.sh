@@ -21,8 +21,8 @@ cp ~/arch-linux-setup/.zshrc .zshrc
 sudo systemctl enable tlp
 
 # setup plymouth
-sudo cp ~/arch-linux-setup/mkinitcpio.conf /etc/mkinitcpio.conf
-sudo cp ~/arch-linux-setup/grub /etc/default/grub
+sudo cp ~/arch-linux-setup/plymouth/mkinitcpio.conf /etc/mkinitcpio.conf
+sudo cp ~/arch-linux-setup/plymouth/grub /etc/default/grub
 sudo mkinitcpio -P
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 sudo cp /usr/share/plymouth/arch-logo.png /usr/share/plymouth/themes/spinner/watermark.png
