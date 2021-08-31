@@ -1,7 +1,7 @@
 # install i3 package (i3-gaps)
 sudo pacman -S bluez blueman dmenu feh i3 network-manager-applet \
 openssh pavucontrol pulseaudio pulseaudio-alsa pulseaudio-bluetooth ttf-font-awesome \
-xbacklight xfce4-panel xfce4-pulseaudio-plugin
+xbacklight xfce4-panel xfce4-battery-plugin xfce4-clipman-plugin xfce4-pulseaudio-plugin
 
 
 # put configuration files
