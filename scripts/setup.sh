@@ -1,17 +1,9 @@
-# Setup yay
-sudo pacman -S --needed git base-devel
-git clone https://aur.archlinux.org/yay.git
-cd yay && makepkg -sic
-
-# Cleanup yay
-cd && sudo rm -r yay
-
 # Install packages from pacman
 sudo pacman -S --needed archlinux-wallpaper firefox noto-fonts noto-fonts-extra papirus-icon-theme \
 powerline pyenv tlp ttf-fira-code ttf-roboto zsh
 
 # Install packages from yay
-yay -S plymouth gdm-plymouth-prime visual-studio-code-bin
+paru -S plymouth gdm-plymouth-prime visual-studio-code-bin
 
 # setup zsh
 chsh -s $(which zsh) ocayci
