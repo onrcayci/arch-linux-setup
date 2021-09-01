@@ -9,3 +9,4 @@ sudo cp ~/arch-linux-setup/i3/90-touchpad.conf /etc/X11/xorg.conf.d
 cp ~/arch-linux-setup/i3/config ~/.config/i3
 cp ~/arch-linux-setup/i3/settings.ini ~/.config/gtk-3.0
 cp -r ~/arch-linux-setup/i3/rofi ~/.config
+cp -r ~/arch-linux-setup/i3/i3status ~/.config
