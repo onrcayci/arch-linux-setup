@@ -1,13 +1,17 @@
 #!/usr/bin/env python
-import os
 import subprocess
+from urllib import request, error
 
 
 def connect_to_wifi():
-    result = subprocess.call(args=["ping", "-n", "1", "google.com"])
-    # if result is 1, this means that there is no connection
-    if result:
-        print(result)
+    # try to check if the internet connection is good
+    try:
+        response = request.urlopen("https://google.com")
+    # no internet connection
+    except error.URLError:
+        # coonect to the internet here
+        wifi_list = subprocess.run(["iwctl", "device", "list"], stdout=subprocess.PIPE)
+        print(wifi_list)
 
 
 def install():
