@@ -1,0 +1,43 @@
+#! /bin/sh
+
+# Enable sxhkd for key bindings
+pgrep -x sxhkd > /dev/null || sxhkd &
+
+# Enable dunst for notifications
+pgrep -x dunst > /dev/null || dunst &
+
+# Run xrandr script to set up the displays
+if [[ -e ~/.screenlayout ]]; then
+	~/.screenlayout/default.sh
+fi
+
+# Enable nitrogen for wallpaper
+pgrep -x nitrogen > /dev/null || nitrogen --restore &
+
+# Enable system tray applications
+pgrep -x nm-applet > /dev/null || nm-applet &
+pgrep -x blueman-applet > /dev/null || blueman-applet &
+pgrep -x picom > /dev/null || picom &
+pgrep -x redshift-gtk > /dev/null || redshift-gtk &
+pgrep -x volumeicon > /dev/null || volumeicon &
+
+# Enable xss-lock with i3lock for screen locking and security
+pgrep -x xss-lock > /dev/null || xss-lock --transfer-sleep-lock -- i3lock --nofork -c 000000 &
+
+# Enable polybar
+if pgrep -x polybar > /dev/null; then
+	killall -q polybar	
+fi
+for mon in $(bspc query -M --names); do
+	MONITOR=$mon polybar -r example &
+done
+
+bspc monitor DP-4 -d I II III IV V
+bspc monitor HDMI-0 -d VI VII VIII IX X
+
+bspc config border_width         4
+bspc config window_gap           4
+
+bspc config split_ratio          0.50
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
