@@ -7,7 +7,9 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 pgrep -x dunst > /dev/null || dunst &
 
 # Run xrandr script to set up the displays
-$HOME/.screenlayout/default.sh
+if [[ -e $HOME/.screenlayout/default.sh ]]; then
+	$HOME/.screenlayout/default.sh
+fi
 
 # Enable nitrogen for wallpaper
 pgrep -x nitrogen > /dev/null || nitrogen --restore &
