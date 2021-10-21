@@ -7,9 +7,7 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 pgrep -x dunst > /dev/null || dunst &
 
 # Run xrandr script to set up the displays
-if [[ -e ~/.screenlayout/default.sh ]]; then
-	~/.screenlayout/default.sh
-fi
+$HOME/.screenlayout/default.sh
 
 # Enable nitrogen for wallpaper
 pgrep -x nitrogen > /dev/null || nitrogen --restore &
@@ -35,7 +33,7 @@ done
 bspc monitor DP-4 -d I II III IV V
 bspc monitor HDMI-0 -d VI VII VIII IX X
 
-bspc config border_width         4
+bspc config border_width         2
 bspc config window_gap           4
 
 bspc config split_ratio          0.50
