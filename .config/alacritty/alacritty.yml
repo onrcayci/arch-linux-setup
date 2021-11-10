@@ -1,0 +1,84 @@
+# Alacritty Configuration File
+
+# Environment Variables
+# env:
+#   TERM: alacritty
+
+window:
+  # Window class (Linux/BSD only):
+  class:
+    # Application instance name
+    instance: Alacritty
+    # General application class
+    general: Alacritty
+
+font:
+  # Normal (roman) font face
+  normal:
+    family: CaskaydiaCove Nerd Font Mono
+    #style: Regular
+  
+  # Bold font face
+  bold:
+    family: CaskaydiaCove Nerd Font Mono
+    #style: Bold
+
+  # Italic font face
+  italic:
+    family: CaskaydiaCove Nerd Font Mono
+    #style: Italic
+
+  # Bold italix font face
+  bold_italic:
+    family: CaskaydiaCove Nerd Font Mono
+
+  # Point size
+  size: 12.0
+
+# Colors (Gruvbox Dark)
+colors:
+  # Default colors
+  primary:
+    background: '#282828'
+    foreground: '#ebdbb2'
+
+  # Cursor colors
+  cursor:
+    text: CellBackground
+    cursor: CellForeground
+
+  # Selection colors
+  selection:
+    text: CellBackground
+    background: CellForeground
+
+  # Normal colors
+  normal:
+    black:    '#282828'
+    red:      '#cc241d'
+    green:    '#98971a'
+    yellow:   '#d79921'
+    blue:     '#458588'
+    magenta:  '#b16286'
+    cyan:     '#689d6a'
+
+  # Bright colors
+  bright:
+    black:    '#1d2021'
+    red:      '#fb4934'
+    green:    '#b8bb26'
+    yellow:   '#fabd2f'
+    blue:     '#83a598'
+    magenta:  '#d3869b'
+    cyan:     '#8ec07c'
+
+# Background opacity
+#background_opacity: 0.5
+
+selection:
+  # When set to `true`, selected text will be copied to the primary clipboard.
+  save_to_clipboard: true
+
+cursor:
+  # Cursor style
+  style: Block
