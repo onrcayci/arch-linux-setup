@@ -13,7 +13,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Fira Code 11
+font pango:Cascadia Code 11
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -24,17 +24,16 @@ font pango:Fira Code 11
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -i /usr/share/backgrounds/gnome/adwaita-night.png
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -c 000000
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
-exec --no-startup-id volumeicon
-
-# in order to use redshift
-exec --no-startup-id /usr/lib/geoclue-2.0/demos/agent
 exec --no-startup-id redshift-gtk
+exec --no-startup-id dunst
+exec --no-startup-id compton
+exec --no-startup-id nitrogen --restore
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -43,23 +42,23 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
-# use xbacklight to adjust screen brightness\
-bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5
+# use xbacklight to adjust screen brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id light -A 10
+bindsym XF86MonBrightnessDown exec --no-startup-id light -U 10
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec xfce4-terminal
+bindsym $mod+Return exec alacritty
 
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+q kill
 
 # start dmenu (a program launcher)
 # bindsym $mod+d exec --no-startup-id dmenu_run
 # A more modern dmenu replacement is rofi:
-bindsym $mod+d exec "rofi -modi drun,run -show drun -show-icons -font 'Fira Code 12'"
+bindsym $mod+d exec "rofi -modi drun,run -show drun -show-icons -font 'Cascadia Code 12'"
 # There also is i3-dmenu-desktop which only displays applications shipping a
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
@@ -156,13 +155,13 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
-
+bindsym $mod+Shift+e exec i3-msg exit
 # lock i3
-bindsym $mod+Shift+w exec loginctl lock-session
-
+bindsym $mod+Mod1+l exec loginctl lock-session
 # shutdown i3
-bindsym $mod+Shift+s exec "i3-nagbar -t warning -m 'Shutdown the computer?' -B 'Shutdown' 'shutdown now'"
+bindsym $mod+Shift+s exec shutdown now
+# reboot i3
+bindsym $mod+Mod1+r exec reboot
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -193,22 +192,36 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-# bar {
-#        status_command i3status
-# }
+bar {
+	status_command 	i3status
+	position 	top
 
-# Start polybar
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+	colors {
+		background 		#282828
+		statusline 		#fabd2f
+		separator  		#689d6a
+		focused_workspace	#7c6f64 #7c6f64 #fabd2f
+		active_workspace	#504945 #504945 #fabd2f
+		inactive_workspace	#282828 #282828	#fabd2f
+		urgent_workspace	#fb4934 #fb4934 #ffffff
+	}
+}
 
-# Disable window titlebars
-for_window [class=".*"] border pixel 0
+# Window borders
+default_border pixel 2
+default_floating_border pixel 2
 
 # Setup gaps
-gaps inner 10
-gaps outer 10
+gaps inner 4
+gaps outer 4
 
-# Setup nitrogen
-exec nitrogen --restore
+# Colors
+client.focused		#d3869b #d3869b #d3869b #d3869b #d3869b
+client.focused_inactive	#b16286 #b16286 #b16286 #b16286 #b16286
+client.unfocused	#282828 #282828 #282828 #282828 #282828
+client.urgent		#fb4934 #fb4934 #fb4934 #fb4934 #fb4934
+client.placeholder	#98971a #98971a #98971a #98971a #98971a
 
-# Enable picom for transparent terminal
-exec picom
+# Automatically put pavucontrol and blueman-manager to workspace 2
+assign [class="Pavucontrol"] number 2
+assign [class="Blueman-manager"] number 2

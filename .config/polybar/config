@@ -72,7 +72,7 @@ font-2 = siji:pixelsize=10;1
 
 modules-left = bspwm
 ;modules-center = mpd
-modules-center = xkeyboard memory cpu temperature date
+modules-right = xkeyboard memory cpu temperature date
 
 tray-position = right
 tray-padding = 2

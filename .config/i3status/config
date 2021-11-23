@@ -11,21 +11,46 @@ general {
         interval = 1
 }
 
+# order += "ipv6"
+# order += "wireless _first_"
+# order += "ethernet _first_"
 order += "battery all"
-order += "load"
+order += "cpu_temperature 0"
+# order += "disk /"
+# order += "load"
 order += "memory"
 order += "tztime local"
+
+wireless _first_ {
+        format_up = "W: (%quality at %essid) %ip"
+        format_down = "W: down"
+}
+
+ethernet _first_ {
+        format_up = "E: %ip (%speed)"
+        format_down = "E: down"
+}
 
 battery all {
         format = "%status %percentage %remaining"
 }
 
+cpu_temperature 0 {
+	format = "%degrees C"
+	max_threshold = "60"
+	format_above_threshold = "Warning! %degrees C"
+}
+
+disk "/" {
+        format = "%avail"
+}
+
 load {
-        format = "CPU Load: %1min\%"
+        format = "%1min"
 }
 
 memory {
-        format = "RAM: %used"
+        format = "RAM: %used / %available"
         threshold_degraded = "1G"
         format_degraded = "MEMORY < %available"
 }
