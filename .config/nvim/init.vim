@@ -1,17 +1,17 @@
 set nocompatible
 
-" {{{ Plug Setup
+" {{{ vim-plug setup
 filetype off
 
 call plug#begin('~/.local/share/nvim/plugged')
 
-" File explorer
-Plug 'preservim/nerdtree'
+" File explorer plugin
+Plug 'scrooloose/nerdtree'
 
 " File explorer git status plugin
 Plug 'xuyuanp/nerdtree-git-plugin'
 
-" Statusline
+" Statusline plugin
 Plug 'vim-airline/vim-airline'
 
 " Comment plugin
@@ -20,20 +20,29 @@ Plug 'scrooloose/nerdcommenter'
 " Syntax checking
 Plug 'w0rp/ale'
 
-" Vim themes
+" Color themes
 Plug 'flazz/vim-colorschemes'
 
-" Python auto-complete
+" Python autocomplete plugin
 Plug 'davidhalter/jedi-vim'
 
 " Multi-language support
 Plug 'sheerun/vim-polyglot'
 
-" Autocomplete
+" Autocomplete plugin
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
-" Vim icons
+" Auto bracket and quote pairing plugin
+Plug 'jiangmiao/auto-pairs'
+
+" Nice file and folder icons
 Plug 'ryanoasis/vim-devicons'
+
+" Git diff plugin
+Plug 'airblade/vim-gitgutter'
+
+" Text filtering and alignment plugin
+Plug 'godlygeek/tabular'
 
 call plug#end()
 " }}}
@@ -41,35 +50,39 @@ call plug#end()
 filetype plugin indent on
 syntax on
 
-set ruler
+" {{{ Vim settings
 set number
 set autoindent
 set wildmenu
 set incsearch
+
 set splitbelow
 set splitright
+
 set nobackup
-set noswapfile
 set noundofile
+set noswapfile
 
-let python3_host_prog='python'
+let python3_host_prog='/Users/onurcayci/.pyenv/versions/miniconda3-latest/bin/python'
+" }}}
 
-" Plugin Settings
-let g:deoplete#enable_at_startup=1
-let g:deoplete#auto_complete=1
+" {{{ Plugin settings
+let deoplete#enable_at_startup=1
+let deoplete#auto_complete=1
 
 let NERDTreeShowHidden=1
-let NERDTreeSortHiddenFirst=1
-let NERDTreeHighlightCursorline=0
-let NERDTreeIgnore=['.git\b']
 let NERDTreeShowLineNumbers=0
-let NERDTreeWinPos='right'
 let NERDTreeMinimalUI=1
+let NERDTreeWinPos='right'
+let NERDTreeSortHiddenFirst=1
+" }}}
 
-" Keybindings
-nnoremap <silent> <C-x> :NERDTreeToggle<CR>
-nnoremap <silent> <C-s> :w<CR>
+" {{{ Keybindings
+nnoremap <silent> <Leader>f :NERDTreeToggle<CR>
+nnoremap <silent> <Leader>s :w<CR>
 nnoremap <silent> <Leader>t :term<CR>
+" }}}
 
-" Theme
-colorscheme firewatch
+" {{{ Colorscheme
+colorscheme Tomorrow-Night
+"}}}
