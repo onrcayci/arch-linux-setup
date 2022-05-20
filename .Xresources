@@ -1,10 +1,12 @@
 ! rxvt-unicode terminal configuration
-URxvt.font: xft:Fira Code:size=10,xft:monospace:size=10
+! URxvt.font: xft:Fira Code:size=10
+! URxvt.font: xft:monospace:size=10
+URxvt.font: xft:CaskaydiaCove Nerd Font:style=Regular:size=13:antialiasing:true
 URxvt.scrollstyle: plain
 ! Disable scroll bar from appearing on the window
 URxvt.scrollBar: false
 ! Adjust letter spacing to be closer than default
-URxvt.letterSpace: -1
+URxvt.letterSpace: 1
 
 ! Dracula color scheme
 *.foreground: #F8F8F2
