@@ -24,15 +24,20 @@ font pango:Cascadia Code 11
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -c 000000
+exec --no-startup-id xss-lock --transfer-sleep-lock -- light-locker --nofork -c 000000
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
+# Bluetooth Manager applet
 exec --no-startup-id blueman-applet
+# Redshift applet
 exec --no-startup-id redshift-gtk
+# Desktop notifications service
 exec --no-startup-id dunst
+# Compiz
 exec --no-startup-id compton
+# Wallpapers
 exec --no-startup-id nitrogen --restore
 
 # Use pactl to adjust volume in PulseAudio.
@@ -50,7 +55,7 @@ bindsym XF86MonBrightnessDown exec --no-startup-id light -U 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec urxvt
 
 # kill focused window
 bindsym $mod+q kill
