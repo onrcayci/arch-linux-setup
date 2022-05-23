@@ -11,13 +11,13 @@ Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/nerdcommenter'
 Plug 'dense-analysis/ale'
 Plug 'flazz/vim-colorschemes'
-Plug 'davidhalter/jedi-vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'ryanoasis/vim-devicons'
 Plug 'jiangmiao/auto-pairs'
 Plug 'airblade/vim-gitgutter'
 Plug 'dracula/vim'
 Plug 'godlygeek/tabular'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 " }}}
@@ -52,13 +52,19 @@ let NERDTreeSortHiddenFirst=1
 let NERDTreeShowLineNumbers=0
 let NERDTreeMinimalUI=1
 
-let g:ale_completion_enabled=1
 let g:ale_linters={
-\ 'python': ['pyright', 'mypy'],
-\}
+\ 'javascript': ['eslint'],
+\ 'python': ['mypy']
+\ }
+
 let g:ale_fixers={
 \ 'python': ['black', 'isort'],
-\}
+\ 'go': ['gofmt', 'goimports', 'golines'],
+\ 'javascript': ['prettier'],
+\ 'typescript': ['prettier'],
+\ 'json': ['prettier'],
+\ 'markdown': ['prettier']
+\ }
 
 " Keybindings
 nnoremap <silent> <Leader>f :NERDTreeToggle<CR>
@@ -66,10 +72,4 @@ nnoremap <silent> <Leader>s :w<CR>
 nnoremap <silent> <C-t> :tabNext<CR>
 
 " Theme
-"colorscheme dracula
-"colorscheme space-vim-dark
-"colorscheme 1989
-colorscheme 256-grayvim
-"colorscheme Chasing_Logic
-"colorscheme OceanicNext
-"colorscheme PaperColor
+colorscheme dracula
