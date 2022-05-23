@@ -13,7 +13,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:CaskaydiaCove Nerd Font 11
+font pango:CaskaydiaCove Nerd Font 12
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -56,7 +56,7 @@ bindsym XF86MonBrightnessDown exec --no-startup-id light -U 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+q kill
@@ -229,5 +229,6 @@ client.urgent		#fb4934 #fb4934 #fb4934 #fb4934 #fb4934
 client.placeholder	#98971a #98971a #98971a #98971a #98971a
 
 # Automatically put pavucontrol and blueman-manager to workspace 2
-assign [class="Pavucontrol"] number 2
-assign [class="Blueman-manager"] number 2
+assign [class="Pavucontrol"] number 10
+assign [class="Blueman-manager"] number 10
+assign [class="Signal"] number 2
