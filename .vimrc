@@ -1,112 +1,75 @@
 set nocompatible
 
-" Vundle setup start
+" {{{ Plug Setup
 filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
 
-call vundle#begin()
+call plug#begin('~/.local/share/nvim/plugged')
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+Plug 'preservim/nerdtree'
+Plug 'xuyuanp/nerdtree-git-plugin'
+Plug 'vim-airline/vim-airline'
+Plug 'scrooloose/nerdcommenter'
+Plug 'dense-analysis/ale'
+Plug 'flazz/vim-colorschemes'
+Plug 'sheerun/vim-polyglot'
+Plug 'ryanoasis/vim-devicons'
+Plug 'jiangmiao/auto-pairs'
+Plug 'airblade/vim-gitgutter'
+Plug 'dracula/vim'
+Plug 'godlygeek/tabular'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" File Tree explorer
-Plugin 'preservim/nerdtree'
-Plugin 'xuyuanp/nerdtree-git-plugin'
+call plug#end()
+" }}}
 
-" Syntax checking
-Plugin 'w0rp/ale'
-Plugin 'ajh17/vimcompletesme'
+filetype plugin indent on
+syntax on
 
-" Autocomplete
-if has('nvim')
-	Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-	Plugin 'Shougo/deoplete.nvim'
-	Plugin 'roxma/nvim-yarp'
-	Plugin 'roxma/vim-hug-neovim-rpc'
-endif
+set ruler
+set number
 
-" Git Plugins
-Plugin 'tpope/vim-fugitive'
+set autoindent
+set wildmenu
+set incsearch
 
-" Colorsheme
-Plugin 'nanotech/jellybeans.vim'
-Plugin 'ghifarit53/tokyonight-vim'
+set splitbelow
+set splitright
 
-" Python specific plugins
-Plugin 'davidhalter/jedi-vim'
+set nobackup
+set noswapfile
+set noundofile
 
-" Golang specific plugins
-Plugin 'fatih/vim-go'
+set backspace=indent,eol,start
+set mouse=a
 
-" Rust specific plugins
-Plugin 'rust-lang/rust.vim'
+let python3_host_prog='/home/ocayci/.pyenv/versions/3.10.2/bin/python'
 
-" Startup dashboard
-Plugin 'mhinz/vim-startify'
+" Plugin Settings
+let g:airline_powerline_fonts=1
 
-" Comment plugin
-Plugin 'scrooloose/nerdcommenter'
-
-" Vim airline status bar
-Plugin 'vim-airline/vim-airline'
-
-" Vim devicons
-Plugin 'ryanoasis/vim-devicons'
-
-" Vim Markdown plugins
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
-
-call vundle#end()
-" Vundle setup end
-
-filetype plugin indent on   " For plugins to load correctly
-syntax on                   " Syntax highlighting
-
-set number          " Line numbers
-set autoindent      " Auto indentation for functions
-set ruler           " Show file stats
-set wildmenu        " Display all matches when tab complete
-set hidden          " Switch between buffers without having to save first
-
-set ttyfast         " Faster redrawing
-set lazyredraw      " Only redraw when necessary
-
-set splitbelow      " Open new windows below the current window
-set splitright      " Open new windows right of the current window
-
-set incsearch       " Enable incremental search
-
-" Tokyo Night color scheme settings
-set termguicolors
-let g:tokyonight_style='night'
-let g:tokyonight_enable_italic=1
-
-" Deoplete settings
-let g:deoplete#enable_at_startup=1
-
-" NERDTree settings
 let NERDTreeShowHidden=1
+let NERDTreeSortHiddenFirst=1
 let NERDTreeShowLineNumbers=0
-let NERDTreeWinPos='right'
-let NERDTreeIgnore=['.git']
 let NERDTreeMinimalUI=1
 
-" keybindings
-nnoremap <silent> <C-x> :NERDTreeToggle<CR>
-nnoremap <silent> <C-s> :w<CR>
-nnoremap <silent> <C-t> :term<CR>
+let g:ale_linters={
+\ 'javascript': ['eslint'],
+\ 'python': ['mypy']
+\ }
 
-" Temporary file settings
-set backup
-set backupdir=$HOME/.vim/files/backup/
-set backupext=-vimbackup
-set backupskip=
-set directory=$HOME/.vim/files/swap/
-set updatecount=100
-set undofile
-set undodir=$HOME/.vim/files/undo/
+let g:ale_fixers={
+\ 'python': ['black', 'isort'],
+\ 'go': ['gofmt', 'goimports', 'golines'],
+\ 'javascript': ['prettier'],
+\ 'typescript': ['prettier'],
+\ 'json': ['prettier'],
+\ 'markdown': ['prettier']
+\ }
 
-" colorscheme
-colorscheme tokyonight
+" Keybindings
+nnoremap <silent> <Leader>f :NERDTreeToggle<CR>
+nnoremap <silent> <Leader>s :w<CR>
+nnoremap <silent> <C-t> :tabNext<CR>
+
+" Theme
+colorscheme dracula
