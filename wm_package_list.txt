@@ -1,0 +1,46 @@
+# Window Managers
+awesome
+bspwm
+i3
+spectrwm
+# Display Manager
+lightdm
+lightdm-gtk-greeter
+# Wallpaper utility
+nitrogen
+# Screen locking utilities
+xss-lock
+xsecurelock
+light-locker
+i3lock
+# Status bars
+i3bar
+i3status
+polybar
+# Keyboard keybindings daemon for bspwm
+sxhkd
+# Audio support
+pulseaudio
+pulseaudio-bluetooth
+bluez
+blueman
+# Network support
+networkmanager
+network-manager-applet
+# Firewall
+firewalld
+ufw
+# Printing support
+cups
+# Icons
+papirus-icon-theme
+# Theme support
+lxappearance
+lightdm-gtk-greeter-settings
+# Terminals
+urxvt (or rxvt-unicode)
+st
+alacritty
+xterm
+# Browsers
+firefox
