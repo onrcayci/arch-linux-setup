@@ -1,0 +1,18 @@
+# Programs that will run after Openbox has started
+
+# Set the wallpaper
+nitrogen --restore &
+
+# Panel
+tint2 &
+
+# Notifications daemon
+dunst &
+
+# Screen locker
+light-locker &
+
+# Compositor
+picom &
+
+# System Tray applets can also be added here
