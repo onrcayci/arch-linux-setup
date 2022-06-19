@@ -1,22 +1,19 @@
 # Window Managers
-awesome
 bspwm
+openbox
 i3
-spectrwm
 # Display Manager
 lightdm
 lightdm-gtk-greeter
 # Wallpaper utility
 nitrogen
 # Screen locking utilities
-xss-lock
-xsecurelock
 light-locker
-i3lock
 # Status bars
 i3bar
 i3status
 polybar
+tint2
 # Keyboard keybindings daemon for bspwm
 sxhkd
 # Audio support
@@ -24,6 +21,8 @@ pulseaudio
 pulseaudio-bluetooth
 bluez
 blueman
+volumeicon
+pavucontrol
 # Network support
 networkmanager
 network-manager-applet
@@ -39,8 +38,16 @@ lxappearance
 lightdm-gtk-greeter-settings
 # Terminals
 urxvt (or rxvt-unicode)
-st
 alacritty
 xterm
 # Browsers
 firefox
+# Misc
+menumaker
+obconf (Openbox configuration manager)
+compton (Compositor)
+polkit
+neovim
+vim
+vi
+sudo
