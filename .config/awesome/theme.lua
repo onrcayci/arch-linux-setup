@@ -14,15 +14,15 @@ local theme = {}
 theme.font          = "CaskaydiaCove Nerd Font 10"
 
 theme.bg_normal     = "#282a36"
-theme.bg_focus      = "#44475a"
+theme.bg_focus      = "#6272a4"
 theme.bg_urgent     = "#ff5555"
-theme.bg_minimize   = theme.bg_normal
+theme.bg_minimize   = "#44475a"
 theme.bg_systray    = theme.bg_normal
 
 theme.fg_normal     = "#f8f8f2"
 theme.fg_focus      = theme.fg_normal
-theme.fg_urgent     = theme.bg_normal
-theme.fg_minimize   = "#6272a4"
+theme.fg_urgent     = theme.fg_normal
+theme.fg_minimize   = theme.fg_normal
 
 theme.useless_gap   = dpi(0)
 theme.border_width  = dpi(1)
@@ -101,5 +101,3 @@ theme.awesome_icon = theme_assets.awesome_icon(
 theme.icon_theme = "/usr/share/icons/Papirus-Dark"
 
 return theme
-
--- vim: filetype=lua:expandtab:shiftwidth=4:tabstop=8:softtabstop=4:textwidth=80
